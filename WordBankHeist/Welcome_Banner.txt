@@ -1,0 +1,72 @@
+                            __      __ ___  _      ___   ___   __  __  ___        _____   ___         _____  _  _  ___       __      __  ___   ___  ___   ___  ___  _  _  _  __       _  _  ___  ___  ___  _____         ___  ___  __  __  ___   _
+                            \ \    / /| __|| |    / __| / _ \ |  \/  || __|      |_   _| / _ \       |_   _|| || || __|      \ \    / / / _ \ | _ \|   \ | _ )/   \| \| || |/ /      | || || __||_ _|/ __||_   _|       / __|/   \|  \/  || __| | |
+                             \ \/\/ / | _| | |__ | (__ | (_) || |\/| || _|         | |  | (_) |        | |  | __ || _|        \ \/\/ / | (_) ||   /| |) || _ \| - || .  ||   <       | __ || _|  | | \__ \  | |        | (_ || - || |\/| || _|  |_|
+                              \_/\_/  |___||____| \___| \___/ |_|  |_||___|        |_|   \___/         |_|  |_||_||___|        \_/\_/   \___/ |_|_\|___/ |___/|_|_||_|\_||_|\_\      |_||_||___||___||___/  |_|         \___||_|_||_|  |_||___| (_)
+
+
+                                                                                                                       	   _._._                       _._._
+                                                                                                                          _|   |_                     _|   |_
+                                                                                                                          | ... |_._._._._._._._._._._| ... |
+                                                                                                                          | ||| |    o $WORDBANK$ o   | ||| |
+                                                                                                                          | """ |  """    """    """  | """ |
+                                                                                                                     ())  |[-|-]| [-|-]  [-|-]  [-|-] |[-|-]|  ())
+                                                                                                                    (())) |     |---------------------|     | (()))
+                                                                                                                   (())())| """ |  """    """    """  | """ |(())())
+                                                                                                                   (()))()|[-|-]|  :::   .-"-.   :::  |[-|-]|(()))()
+                                                                                                                   ()))(()|     | |~|~|  |_|_|  |~|~| |     |()))(()
+                                                                                                                      ||  |_____|_|_|_|__|_|_|__|_|_|_|_____|  ||
+                                                                                                                   ~ ~^^ @@@@@@@@@@@@@@/=======\@@@@@@@@@@@@@@ ^^~ ~
+                                                                                                                        ^~^~                                ~^~^
+
+
+
+
+
+                                                                                                                    ________________________________________________
+                                                                                                                   /                                                \
+                                                                                                                  |    _________________________________________     |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |  C:\> hack init                         |    |
+                                                                                                                  |   |  C:\> initializing hack...              |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |                                         |    |
+                                                                                                                  |   |_________________________________________|    |
+                                                                                                                  |                                                  |
+                                                                                                                   \_________________________________________________/
+                                                                                                                          \___________________________________/
+                                                                                                                       ___________________________________________
+                                                                                                                    _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+                                                                                                                 _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+                                                                                                              _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+                                                                                                           _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+                                                                                                        _-'.-.-.-.-.-. .---.-. .-------------------------. .-.---. .---.-.-.-.`-_
+                                                                                                       :-------------------------------------------------------------------------:
+                                                                                                       `---._.-------------------------------------------------------------._.---'
+
+
+
+Setting:
+
+You are a hacker that found a front-door entrance vulnerability to the banking giant WordBank.
+
+Note: WordBank is a financial giant in this alternate universe, that has more wealth than all banks in the world combined. They were also known for their bad business practices which ultimately gave them a Business Better Bureau score of -5/5.
+
+You decided to take matters into your own hands and teach them a lesson!
+
+The objective of this game is to guess as many words as you can to break into the many virtual security lockboxes that contains portions of intCoin, a cryptocurrency that is each holds the value of the max value of integer!
+
+The major security flaw of their system is that it provides passcode hints to the security lockboxes!
+
+However beware!!! If you get greedy and caught in the act... you will get sent straight to jail!
+
+Proceed at your own risk....
+
+
