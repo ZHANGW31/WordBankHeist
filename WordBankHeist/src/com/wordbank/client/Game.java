@@ -45,6 +45,8 @@ public class Game {
         int playerLives = player.getCurrentLives();
         int playerCash = player.getCash();
         int awardedCash = 0;
+        int answeredWrong = 0;
+        int playerStartingLife = player.getCurrentLives();
 
         //WordBank MainWords Setup
         Set<String> mainWords = wordBankCollection.getMainWords();
@@ -57,7 +59,7 @@ public class Game {
 
         //Todo create the rules and objectives.
 
-        while(playerLives != 0){
+        while(playerLives >= 0){
 
             //Game logic starts here
             String word = questionFactory.getRandomWord(mainWords);
@@ -81,26 +83,25 @@ public class Game {
 
                 System.out.println(prompter.wrongAnswerMessage());
                 playerLives--;
-                System.out.println(prompter.wrongAnswerTryTokenConsumed(playerLives));
-
+                answeredWrong++;
+            }
+            if (answeredWrong > playerStartingLife){
+                System.out.println(prompter.endOfTryMessage());
+                break;
             }
 
             //Options to cash out Phase
-
+            System.out.println(prompter.wrongAnswerTryTokenConsumed(playerLives));
             System.out.println(prompter.cashOutOptionMessage());
             String playerChoice = scanner.nextLine().toLowerCase();
                 if (playerChoice.equals("y")){
                     cashOut = true;
                     break;
                 } else if (playerChoice.equals("n")){
+
                     System.out.println(prompter.continueMessage());
                 }
 
-            //Losing game condition message.
-            if (playerLives == 0){
-
-                System.out.println(prompter.endOfTryMessage());
-            }
         }
 
         if (cashOut == true){
@@ -110,6 +111,7 @@ public class Game {
             }
             System.out.println(prompter.cashOutWinMessageFour(playerCash));
         }
+        System.out.println("Thank you for playing! - From the JavaNinjas");
 
     }
     // Main method

@@ -39,16 +39,6 @@ public class Player {
         return sum;
     }
 
-    public String answerTheQuestion(String answer) {
-
-        return answer;
-    }
-
-    public boolean cashOut() {
-
-        return true;
-    }
-
     // ACCESSORS METHOD
     public String getName() {
 
