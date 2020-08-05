@@ -1,14 +1,15 @@
 package com.wordbank.client;
 
-import com.wordbank.*;
+import com.wordbank.Player;
+import com.wordbank.Prompts;
+import com.wordbank.QuestionFactory;
+import com.wordbank.WordBankCollection;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Stream;
-
 
 
 public class Game {
@@ -18,26 +19,18 @@ public class Game {
     WordBankCollection wordBankCollection = new WordBankCollection();// instance of wordBankCollection
     Player player = new Player(); // creating new instance of player
 
-    Prompter prompter = new Prompter();
+    Prompts prompts = new Prompts();
     Scanner scanner = new Scanner(System.in);
 
     public Game() throws IOException {
     }
 
+    public void start() throws InterruptedException, IOException {
 
-    public void start() throws InterruptedException {
-
-
-        //This block of code reads and println out the Welcome_Banner.txt file.
-        try (BufferedReader reader = new BufferedReader(new FileReader("Welcome_Banner.txt"))) {
-            Stream<String> line = reader.lines();
-            line.forEach(System.out::println);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        showBanner();
 
         //Ask for name, create player object and then set the player name
-        System.out.println(prompter.nameMessage());
+        System.out.println(prompts.name());
         String name = scanner.nextLine();
 
         //Player setup
@@ -53,22 +46,12 @@ public class Game {
         //WordBank MainWords Setup
         Set<String> mainWords = wordBankCollection.getMainWords();
 
-        System.out.println(prompter.welcomeMessage() + name + "\n" + prompter.beginningMessage());
-        String viewTheRules = scanner.nextLine().toLowerCase();
-        if (viewTheRules.equals("y")){
-            try (BufferedReader reader = new BufferedReader(new FileReader("Rules of the Game.txt"))) {
-                Stream<String> line = reader.lines();
-                line.forEach(System.out::println);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        System.out.println(prompts.welcome() + name + "\n");
+        showRules(name);
 
         Thread.sleep(2000);
         System.out.println("HackAssistAI: Initializing hack...injecting package... loading... success!");
         Thread.sleep(2000);
-
-        //Todo create the rules and objectives.
 
         while(playerLives >= 0){
 
@@ -82,14 +65,11 @@ public class Game {
                 playerLives += 1;
                 consecutiveCorrectAnswers = 0;
             }
-            System.out.println(prompter.cashOutMessage(playerCash,playerLives));
-
+            System.out.println(prompts.status(playerCash,playerLives));
 
             //Question Phase
             Thread.sleep(2000);
             System.out.println(questionFactory.questionGenerator(word));
-
-
 
             //User Answer Phase
             String playerAnswer = scanner.nextLine().toLowerCase();
@@ -98,12 +78,12 @@ public class Game {
                 awardedCash = 100 * playerAnswer.length();
                 playerCash += awardedCash;
                 consecutiveCorrectAnswers++;
-                System.out.println(prompter.rightAnswerMessage() + prompter.rightAnswerCashAmount(awardedCash));
+                System.out.println(prompts.rightAnswer() + prompts.amountWon(awardedCash));
                 Thread.sleep(1500);
 
             } else { //If the user's answer is incorrect.
 
-                System.out.println(prompter.wrongAnswerMessage());
+                System.out.println(prompts.wrongAnswer());
                 Thread.sleep(1000);
                 consecutiveCorrectAnswers = 0;
                 playerLives--;
@@ -111,37 +91,69 @@ public class Game {
             }
             if (answeredWrong > playerStartingLife){
                 consecutiveCorrectAnswers = 0;
-                System.out.println(prompter.endOfTryMessage());
+                System.out.println(prompts.gameOver());
                 Thread.sleep(1000);
                 break;
             }
 
             //Options to cash out Phase
-            System.out.println(prompter.wrongAnswerTryTokenConsumed(playerLives));
+            System.out.println(prompts.retryTokenConsumed(playerLives));
             Thread.sleep(1000);
-            System.out.println(prompter.cashOutOptionMessage());
+            System.out.println(prompts.cashOutOptionMessage());
             String playerChoice = scanner.nextLine().toLowerCase();
                 if (playerChoice.equals("y")){
                     cashOut = true;
                     break;
-                } else if (playerChoice.equals("n")){
+                } else if (!playerChoice.equals("y") && !playerChoice.equals("n")){
 
-                    System.out.println(prompter.continueMessage());
-                    Thread.sleep(1500);
+
                 }
+            System.out.println(prompts.nextStep());
+            Thread.sleep(1500);
 
         }
 
         if (cashOut == true){
-            for (int i = 0; i < prompter.cashOutMessagesWinnings.length; i++){
+            for (int i = 0; i < prompts.cashOutMessagesWinnings.length; i++){
                 Thread.sleep(1500);
-                System.out.println(prompter.cashOutMessagesWinnings[i]);
+                System.out.println(prompts.cashOutMessagesWinnings[i]);
             }
-            System.out.println(prompter.cashOutWinMessageFour(playerCash));
+            System.out.println(prompts.endGameWin(playerCash));
         }
         System.out.println("Thank you for playing! - From the JavaNinjas");
 
     }
+
+    private void showRules(String name) throws IOException {
+        System.out.println(prompts.begin());
+        String viewTheRules = scanner.nextLine().toLowerCase();
+        if (viewTheRules.equals("y")){
+            Files.lines(Path.of("Rules of the Game.txt")).forEach(line -> {
+                System.out.println(line);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        } else if (!viewTheRules.equals("y") && !viewTheRules.equals("n")){
+
+            System.out.println("Please enter Y or N");
+            showRules(name);
+        }
+    }
+
+    private void showBanner() throws IOException {
+        Files.lines(Path.of("Welcome_Banner.txt")).forEach(line -> {
+            System.out.println(line);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     // Main method
     public static void main (String[]args) throws IOException, InterruptedException { // this IO exception needs to be removed, it is only for
         // getting compile error away.

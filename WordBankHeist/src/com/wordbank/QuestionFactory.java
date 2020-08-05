@@ -1,14 +1,13 @@
 package com.wordbank;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Random;
+import java.util.Set;
 
 
 public class QuestionFactory {
 
-    WordBankCollection wordBankCollection = new WordBankCollection();
-
-    public QuestionFactory() throws IOException {
+    public QuestionFactory() {
     }
 
     public Set<String> answerKey(int length, char firstCharacter, Set<String> inputSet){
@@ -43,23 +42,5 @@ public class QuestionFactory {
             currentIndex++;
         }
         return null;
-    }
-
-    public boolean validateQuestion(int length, char firstCharacter, Set<String> inputSet){
-        int counter = 0;
-        boolean result = false;
-
-        for (String word: inputSet) {
-            if (word.charAt(0) == firstCharacter && word.length() == length){
-                counter++;
-            }
-        }
-        if (counter > 0){
-            result = false;
-        } else {
-            result = true;
-        }
-
-        return result;
     }
 }

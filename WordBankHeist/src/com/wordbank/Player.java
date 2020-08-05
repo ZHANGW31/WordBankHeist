@@ -32,18 +32,7 @@ public class Player {
 
     // BUSINESS METHOD
 
-    public int cashStolen(){
-        int balance=0;
-        int sum=0;
-        sum += balance;
-        return sum;
-    }
-
     // ACCESSORS METHOD
-    public String getName() {
-
-        return name;
-    }
 
     public void setName(String name) {
 
