@@ -1,6 +1,5 @@
 package com.wordbank.test;
 
-import com.wordbank.Level;
 import com.wordbank.Prompter;
 import com.wordbank.WordBankCollection;
 
@@ -46,44 +45,10 @@ public class WordBankCollectionTest {
         WordBankCollection wordBank = new WordBankCollection();
         Prompter prompter= new Prompter();
 
-        Level level = Level.EASY;
+
         WordBankCollectionTest wordBankCollectionTest = new WordBankCollectionTest();
         wordBankCollectionTest.generateMediumQuestion();
     }
 
- /*   @Test
-    public void getAllWords() {
-    }
 
-    @Test
-    public void setEasyWords() {
-    }
-
-    @Test
-    public void setMediumWords() {
-    }
-
-    @Test
-    public void setHardWords() {
-    }
-
-    @Test
-    public void getEasyWords() {
-    }
-
-    @Test
-    public void getMediumWords() {
-    }
-
-    @Test
-    public void getHardWords() {
-    }
-
-    @Test
-    public void longestLengthWordInSet() {
-    }
-
-    @Test
-    public void removeWord() {
-    }*/
 }

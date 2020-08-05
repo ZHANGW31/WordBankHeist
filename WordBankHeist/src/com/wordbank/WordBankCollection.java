@@ -19,18 +19,7 @@ public class WordBankCollection {
     private static final int MEDIUM_WORD_MAX_LENGTH = 6;
     private static final int HARD_WORD_MIN_LENGTH = 7;
 
-    public WordBankCollection() throws IOException {
-
-        //This constructor upon creation, sets the path to the data file, in this case is the WordBank.txt.
-        //Then using Stream and Files.lines methods, parses the text document and adds each word line by line into a LinkedHashSet.
-
-        /*Path path = Paths.get("WordBank.txt");
-        Files.lines(path).forEach(System.out::println);
-        try(Stream<String> lines = Files.lines(path)) {
-            lines.forEach(word -> allWords.add(word));
-        } catch (IOException ex) {
-            System.out.println("An error has occurred reading the data file");
-        }*/
+    public WordBankCollection() throws IOException { //No arg constructor
 
         try (BufferedReader reader = new BufferedReader(new FileReader("WordBank.txt"))) {
             Stream<String> line = reader.lines();
