@@ -27,7 +27,7 @@ public class Game {
 
     public void start() throws InterruptedException, IOException {
 
-        showBanner();
+        showBanner();//This method reads from the data folder a text document that contains the banner and displays it to the user.
 
         //Ask for name, create player object and then set the player name
         String name = getPlayerName();
@@ -45,7 +45,7 @@ public class Game {
         //WordBank MainWords Setup
         Set<String> mainWords = wordBankCollection.getMainWords();
 
-        showRules(name);
+        showRules(name); //If the user decides that they want to see the rules and objectives, this method handles whether to display the rules or continue.
 
         Thread.sleep(2000);
         System.out.println("HackAssistAI: Initializing hack...injecting package... loading... success!");
@@ -94,8 +94,6 @@ public class Game {
                 break;
             }
 
-
-
             //Options to cash out Phase
             System.out.println(prompts.retryTokenConsumed(playerLives));
             Thread.sleep(1000);
@@ -130,12 +128,11 @@ public class Game {
         return name;
     }
 
-
     private void showRules(String name) throws IOException {
         System.out.println(prompts.begin());
         String viewTheRules = scanner.nextLine().toLowerCase();
         if (viewTheRules.equals("y")){
-            Files.lines(Path.of("Rules of the Game.txt")).forEach(line -> {
+            Files.lines(Path.of("data","Rules of the Game.txt")).forEach(line -> {
                 System.out.println(line);
                 try {
                     Thread.sleep(100);
@@ -151,7 +148,7 @@ public class Game {
     }
 
     private void showBanner() throws IOException {
-        Files.lines(Path.of("Welcome_Banner.txt")).forEach(line -> {
+        Files.lines(Path.of("data","Welcome_Banner.txt")).forEach(line -> {
             System.out.println(line);
             try {
                 Thread.sleep(100);
@@ -169,5 +166,4 @@ public class Game {
         game.start();
 
     }
-
 }

@@ -1,11 +1,10 @@
 package com.wordbank;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class WordBankCollection {
 
@@ -18,12 +17,7 @@ public class WordBankCollection {
 
     public WordBankCollection() throws IOException { //No arg constructor
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("WordBank.txt"))) {
-            Stream<String> line = reader.lines();
-            line.forEach(allWords::add);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Files.lines(Path.of("data", "WordBank.txt")).forEach(word -> allWords.add(word));
         setMainWords();
     }
     //Accessor Methods
