@@ -53,7 +53,7 @@ public class Prompts {
     }
 
     public static String cashOutOptionMessage(){
-        return "Would you like to cash out? Press 'Y' for yes or 'N' for no to continue hacking.";
+        return "HackAssistAI: Would you like to cash out? Please type 'cashout' to cashout or to continue hacking, just press enter. ";
     }
 
 

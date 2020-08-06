@@ -14,7 +14,7 @@ public class WordBankCollection {
     private Set<String> mainWords = new LinkedHashSet<>();
 
     private static final int EASY_WORD_MIN_LENGTH = 2;
-    private static final int MEDIUM_WORD_MAX_LENGTH = 6;
+    private static final int MEDIUM_WORD_MAX_LENGTH = 7;
 
     public WordBankCollection() throws IOException { //No arg constructor
 

@@ -30,8 +30,7 @@ public class Game {
         showBanner();
 
         //Ask for name, create player object and then set the player name
-        System.out.println(prompts.name());
-        String name = scanner.nextLine();
+        String name = getPlayerName();
 
         //Player setup
         player.setName(name);
@@ -46,7 +45,6 @@ public class Game {
         //WordBank MainWords Setup
         Set<String> mainWords = wordBankCollection.getMainWords();
 
-        System.out.println(prompts.welcome() + name + "\n");
         showRules(name);
 
         Thread.sleep(2000);
@@ -96,24 +94,23 @@ public class Game {
                 break;
             }
 
+
+
             //Options to cash out Phase
             System.out.println(prompts.retryTokenConsumed(playerLives));
             Thread.sleep(1000);
             System.out.println(prompts.cashOutOptionMessage());
             String playerChoice = scanner.nextLine().toLowerCase();
-                if (playerChoice.equals("y")){
+                if (playerChoice.equals("cashout")){
                     cashOut = true;
                     break;
-                } else if (!playerChoice.equals("y") && !playerChoice.equals("n")){
-
-
                 }
             System.out.println(prompts.nextStep());
             Thread.sleep(1500);
 
         }
 
-        if (cashOut == true){
+        if (cashOut){
             for (int i = 0; i < prompts.cashOutMessagesWinnings.length; i++){
                 Thread.sleep(1500);
                 System.out.println(prompts.cashOutMessagesWinnings[i]);
@@ -123,6 +120,16 @@ public class Game {
         System.out.println("Thank you for playing! - From the JavaNinjas");
 
     }
+
+    private String getPlayerName() {
+        System.out.println(prompts.name());
+        String name = scanner.nextLine();
+        if (name.isEmpty() | name.isBlank()){
+            getPlayerName();
+        }
+        return name;
+    }
+
 
     private void showRules(String name) throws IOException {
         System.out.println(prompts.begin());
