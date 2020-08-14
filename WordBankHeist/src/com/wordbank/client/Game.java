@@ -79,23 +79,23 @@ public class Game {
                 System.out.println(prompts.rightAnswer() + prompts.amountWon(awardedCash));
                 Thread.sleep(1500);
 
-            } else { //If the user's answer is incorrect.
-
+            } else if (answeredWrong >= playerStartingLife) { //If the user's answer is incorrect.
+                    consecutiveCorrectAnswers = 0;
+                    System.out.println(prompts.gameOver());
+                    Thread.sleep(1000);
+                    break;
+            } else {
                 System.out.println(prompts.wrongAnswer());
                 Thread.sleep(1000);
                 consecutiveCorrectAnswers = 0;
                 playerLives--;
+                System.out.println(prompts.retryTokenConsumed(playerLives));
                 answeredWrong++;
             }
-            if (answeredWrong > playerStartingLife){
-                consecutiveCorrectAnswers = 0;
-                System.out.println(prompts.gameOver());
-                Thread.sleep(1000);
-                break;
-            }
+
 
             //Options to cash out Phase
-            System.out.println(prompts.retryTokenConsumed(playerLives));
+
             Thread.sleep(1000);
             System.out.println(prompts.cashOutOptionMessage());
             String playerChoice = scanner.nextLine().toLowerCase();
@@ -115,8 +115,9 @@ public class Game {
             }
             System.out.println(prompts.endGameWin(playerCash));
         }
-        System.out.println("Thank you for playing! - From the JavaNinjas");
-
+        System.out.println("Thank you for playing! - From the JavaNinjas\n");
+        System.out.println("Press any key to exit the game.");
+        scanner.nextLine();
     }
 
     private String getPlayerName() {
@@ -127,7 +128,7 @@ public class Game {
         }
         return name;
     }
-
+    
     private void showRules(String name) throws IOException {
         System.out.println(prompts.begin());
         String viewTheRules = scanner.nextLine().toLowerCase();
@@ -156,7 +157,9 @@ public class Game {
                 e.printStackTrace();
             }
         });
+
     }
+
 
     // Main method
     public static void main (String[]args) throws IOException, InterruptedException { // this IO exception needs to be removed, it is only for
@@ -164,6 +167,7 @@ public class Game {
 
         Game game = new Game();
         game.start();
+
 
     }
 }

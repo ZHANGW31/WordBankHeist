@@ -30,7 +30,6 @@ public class Player {
         setCurrentLives(currentLives);
     }
 
-    // BUSINESS METHOD
 
     // ACCESSORS METHOD
 
